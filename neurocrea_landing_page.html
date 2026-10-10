@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroCrea | Apoyo integral para niños neurodivergentes</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6', // Azul principal, transmite confianza y calma
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        accent: {
+                            500: '#8b5cf6', // Violeta para creatividad
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0e7ff 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-gray-50">
+
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center gap-2 group">
+                        <div class="w-10 h-10 bg-brand-500 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <span class="font-bold text-2xl text-brand-900 tracking-tight">NeuroCrea</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#problema" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">El Problema</a>
+                    <a href="#solucion" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">La Solución</a>
+                    <a href="#ods" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Impacto (ODS)</a>
+                    <a href="#negocio" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Modelo de Negocio</a>
+                    <a href="#equipo" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Equipo</a>
+                    <a href="#contacto" class="bg-brand-500 text-white px-6 py-2.5 rounded-full font-medium hover:bg-brand-600 transition-all shadow-md">Únete a la iniciativa</a>
+                </div>
+                <!-- Menú móvil -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" class="text-gray-600 hover:text-brand-500 focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#problema" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-500">El Problema</a>
+                <a href="#solucion" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-500">La Solución</a>
+                <a href="#ods" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-500">Impacto (ODS)</a>
+                <a href="#negocio" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-500">Modelo de Negocio</a>
+                <a href="#equipo" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-500">Equipo</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="gradient-bg pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+            <div class="absolute top-48 -left-24 w-72 h-72 bg-accent-100 rounded-full mix-blend-multiply filter blur-3xl opacity-60"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-white text-brand-700 font-semibold text-sm mb-6 border border-brand-200 shadow-sm">
+                        Educación de Calidad e Inclusión
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Desarrollo integral para niños <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-accent-600">Neurodivergentes</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                        NeuroCrea brinda herramientas de diagnóstico temprano y actividades creativas para adaptar el aprendizaje en la escuela y el hogar, conectando a expertos con familias.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#solucion" class="bg-brand-600 text-white px-8 py-3.5 rounded-full font-bold text-center hover:bg-brand-700 transition-all shadow-lg flex items-center justify-center gap-2">
+                            Conoce la plataforma <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#negocio" class="bg-white text-gray-700 border border-gray-200 px-8 py-3.5 rounded-full font-bold text-center hover:bg-gray-50 transition-all shadow-sm flex items-center justify-center gap-2">
+                            Ver Modelo de Negocio
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://placehold.co/600x450/e0e7ff/1d4ed8?text=Plataforma+NeuroCrea" alt="Plataforma NeuroCrea" class="rounded-2xl shadow-2xl border-4 border-white">
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent-100 text-accent-600 rounded-full flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-puzzle-piece"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-bold uppercase">Nuevo recurso</p>
+                            <p class="text-sm font-bold text-gray-800">Minijuego Cognitivo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="problema" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">El Reto de la Inclusión Educativa</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded mb-6"></div>
+                <p class="text-lg text-gray-600">
+                    El sistema educativo y familiar actual enfrenta desafíos significativos para proveer un entorno adaptado que potencie el desarrollo de niños en primaria.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+                    <div class="w-14 h-14 bg-red-100 text-red-500 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Falta de Diagnóstico Temprano</h3>
+                    <p class="text-gray-600">
+                        Muchos niños neurodivergentes atraviesan los primeros años escolares sin una identificación adecuada de sus necesidades, limitando su potencial.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+                    <div class="w-14 h-14 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-house-chimney-window"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Desorientación Familiar</h3>
+                    <p class="text-gray-600">
+                        Los padres de familia carecen de información, orientación profesional y herramientas prácticas para adaptar el entorno en el hogar.
+                    </p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 card-hover">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-500 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Recursos Docentes Limitados</h3>
+                    <p class="text-gray-600">
+                        Los maestros de educación básica requieren más recursos pedagógicos, dinámicas y soporte para lograr una verdadera inclusión en las aulas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucion" class="py-20 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">La Solución: Ecosistema NeuroCrea</h2>
+                    <div class="h-1 w-20 bg-brand-500 rounded mb-6"></div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Basado en nuestra arquitectura de proyecto, conectamos la ideación experta con la implementación práctica, utilizando ramas artísticas como vehículo de aprendizaje.
+                    </p>
+                    
+                    <ul class="space-y-6 mt-8">
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-brand-600 text-xl border border-brand-100">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Diagnóstico y Acompañamiento</h4>
+                                <p class="text-gray-600 mt-1">Especialistas (psicólogos y de lenguaje) generan ideas sólidas para hacer diagnósticos precisos e intervenir en la escuela y el hogar.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-brand-600 text-xl border border-brand-100">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Plataforma Interactiva</h4>
+                                <p class="text-gray-600 mt-1">Los alumnos acceden a minijuegos, dinámicas y tutoriales validados, que apoyan su desarrollo cognitivo a través del arte.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md text-brand-600 text-xl border border-brand-100">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900">Adaptación del Entorno</h4>
+                                <p class="text-gray-600 mt-1">Proveemos una sección dedicada para padres (adaptación en casa) y recursos para que los maestros los incluyan en sus clases diarias.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 relative">
+                        <div class="text-center mb-6">
+                            <div class="inline-block bg-brand-100 text-brand-800 px-4 py-2 rounded-lg font-bold shadow-sm">Expertos (USAER / Psicología)</div>
+                            <div class="w-0.5 h-6 bg-gray-300 mx-auto my-1"></div>
+                            <div class="inline-block bg-brand-600 text-white px-6 py-2 rounded-full font-bold shadow-md text-sm">Idea Sólida y Diagnóstico</div>
+                        </div>
+                        
+                        <div class="flex justify-between items-start relative mb-6">
+                            <svg class="absolute top-0 left-1/4 w-1/2 h-10 -z-10" style="transform: translateY(-50%);">
+                                <path d="M 0,20 C 0,20 50,20 50,20 C 50,0 50,0 50,0" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                                <path d="M 100%,20 C 100%,20 50,20 50,20" fill="none" stroke="#cbd5e1" stroke-width="2"/>
+                            </svg>
+                            
+                            <div class="text-center w-5/12">
+                                <div class="bg-gray-100 p-2 rounded-lg font-semibold text-gray-800 mb-2 border border-gray-200 text-sm">Familia</div>
+                                <div class="bg-blue-50 text-blue-700 text-xs p-2 rounded-lg border border-blue-100">Adaptación en el hogar</div>
+                            </div>
+                            
+                            <div class="text-center w-5/12">
+                                <div class="bg-gray-100 p-2 rounded-lg font-semibold text-gray-800 mb-2 border border-gray-200 text-sm">Escuela</div>
+                                <div class="bg-blue-50 text-blue-700 text-xs p-2 rounded-lg border border-blue-100">Adaptación en aulas</div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-6 border-t border-dashed border-gray-200">
+                            <div class="flex flex-col items-center justify-center gap-2">
+                                <div class="text-center bg-accent-50 text-accent-700 w-full py-2 rounded font-bold text-sm border border-accent-200">
+                                    <i class="fa-solid fa-palette mr-2"></i> Plataforma: Ramas Artísticas
+                                </div>
+                                <div class="flex gap-4 w-full mt-2">
+                                    <div class="flex-1 bg-white border border-gray-200 rounded p-2 text-center text-xs shadow-sm">
+                                        <i class="fa-solid fa-gamepad text-brand-500 mb-1 block text-lg"></i>
+                                        Minijuegos
+                                    </div>
+                                    <div class="flex-1 bg-white border border-gray-200 rounded p-2 text-center text-xs shadow-sm">
+                                        <i class="fa-solid fa-users text-brand-500 mb-1 block text-lg"></i>
+                                        Dinámicas
+                                    </div>
+                                    <div class="flex-1 bg-white border border-gray-200 rounded p-2 text-center text-xs shadow-sm">
+                                        <i class="fa-solid fa-book-open text-brand-500 mb-1 block text-lg"></i>
+                                        Tutoriales
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-500 mt-2 text-center w-full bg-gray-50 p-2 rounded">
+                                    Con el apoyo técnico y de filtro por parte de <span class="font-bold">Voluntarios</span>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ods" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Impacto Alineado a los ODS</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded mb-6"></div>
+                <p class="text-lg text-gray-600">
+                    El modelo de NeuroCrea está diseñado para generar un impacto real en la sociedad, persiguiendo metas globales de las Naciones Unidas.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- ODS 4 -->
+                <div class="bg-red-600 rounded-2xl p-1 text-white shadow-xl transform scale-105 z-10 transition-transform">
+                    <div class="border-2 border-white/20 rounded-xl p-6 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-5xl font-bold">4</h3>
+                                <i class="fa-solid fa-book-open-reader text-4xl opacity-80"></i>
+                            </div>
+                            <h4 class="text-2xl font-bold mb-4 uppercase">Educación de Calidad</h4>
+                            <p class="text-red-100 font-medium">
+                                Garantizar una educación inclusiva, equitativa y de calidad, y promover oportunidades de aprendizaje.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-red-500/50">
+                            <p class="text-sm"><strong>Enfoque NeuroCrea:</strong> Proveer a niños de primaria y maestros herramientas adaptadas para facilitar el aprendizaje continuo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ODS 3 -->
+                <div class="bg-green-600 rounded-2xl p-1 text-white shadow-lg opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="border-2 border-white/20 rounded-xl p-6 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-5xl font-bold">3</h3>
+                                <i class="fa-solid fa-heart-pulse text-4xl opacity-80"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 uppercase">Salud y Bienestar</h4>
+                            <p class="text-green-100 text-sm">
+                                Garantizar una vida sana y promover el bienestar para todos en todas las edades.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-green-500/50">
+                            <p class="text-sm"><strong>Enfoque NeuroCrea:</strong> Fomentar la salud mental a través del diagnóstico temprano por psicólogos y atención guiada.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ODS 10 -->
+                <div class="bg-pink-600 rounded-2xl p-1 text-white shadow-lg opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="border-2 border-white/20 rounded-xl p-6 h-full flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="text-5xl font-bold">10</h3>
+                                <i class="fa-solid fa-scale-balanced text-4xl opacity-80"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-4 uppercase">Reducción de las Desigualdades</h4>
+                            <p class="text-pink-100 text-sm">
+                                Reducir la desigualdad promoviendo la inclusión social, económica y política de todos.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-6 border-t border-pink-500/50">
+                            <p class="text-sm"><strong>Enfoque NeuroCrea:</strong> Nivelar las oportunidades para niños neurodivergentes, asegurando su correcta integración escolar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="negocio" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Modelo de Negocio</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded mb-6"></div>
+                <p class="text-lg text-gray-600">
+                    Esquema estructural de viabilidad y operación para el proyecto NeuroCrea.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 bg-white p-6 rounded-2xl shadow-lg border border-gray-200">
+                
+                <!-- Socios Clave -->
+                <div class="md:col-span-1 bg-gray-50 p-5 rounded-xl border border-gray-200">
+                    <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                        <i class="fa-solid fa-handshake"></i> Socios Clave
+                    </h3>
+                    <ul class="text-sm text-gray-700 space-y-3">
+                        <li>Profesores de USAER</li>
+                        <li>Especialistas en lenguaje y psicología</li>
+                        <li>Estudiantes en servicio social</li>
+                        <li>DIF</li>
+                        <li>Ciudad Niñez</li>
+                        <li>UdeG</li>
+                    </ul>
+                </div>
+
+                <!-- Actividades y Recursos -->
+                <div class="md:col-span-1 flex flex-col gap-4">
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 flex-1">
+                        <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-list-check"></i> Actividades Clave
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Identificación</li>
+                            <li>Diagnóstico</li>
+                            <li>Herramientas de trabajo con niños</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 flex-1">
+                        <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-box-open"></i> Recursos Clave
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Test diagnósticos</li>
+                            <li>Especialistas</li>
+                            <li>Videos y Artículos PDF</li>
+                            <li>Sitio web interactivo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Propuesta de Valor -->
+                <div class="md:col-span-1 bg-brand-600 p-5 rounded-xl text-white shadow-md transform md:-translate-y-2">
+                    <h3 class="text-white font-bold flex items-center gap-2 mb-4 border-b border-brand-400 pb-2 text-sm uppercase">
+                        <i class="fa-solid fa-gem"></i> Propuesta de Valor
+                    </h3>
+                    <p class="text-brand-50 text-sm leading-relaxed font-medium">
+                        Brindar diagnóstico especializado a niños neurodivergentes de primaria y proporcionar una plataforma para trabajar de la mano con ellos mediante herramientas artísticas y pedagógicas.
+                    </p>
+                </div>
+
+                <!-- Relaciones y Distribución -->
+                <div class="md:col-span-1 flex flex-col gap-4">
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 flex-1">
+                        <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-comments"></i> Relación Clientes
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Redes sociales</li>
+                            <li>Sitio web interativo</li>
+                            <li>Blog informativo</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-xl border border-gray-200 flex-1">
+                        <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                            <i class="fa-solid fa-truck-fast"></i> Distribución
+                        </h3>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>Sitio web</li>
+                            <li>Instituciones de Gobierno</li>
+                            <li>Directores de zona escolar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Segmentos -->
+                <div class="md:col-span-1 bg-gray-50 p-5 rounded-xl border border-gray-200">
+                    <h3 class="text-brand-700 font-bold flex items-center gap-2 mb-4 border-b border-gray-200 pb-2 text-sm uppercase">
+                        <i class="fa-solid fa-users-viewfinder"></i> Segmentos de Mercado
+                    </h3>
+                    <ul class="text-sm text-gray-700 space-y-3">
+                        <li>Gobierno e Instituciones públicas</li>
+                        <li>Empresas dedicadas al sector de Educación Primaria</li>
+                        <li>Padres de Familia</li>
+                        <li>Escuelas primarias</li>
+                    </ul>
+                </div>
+                
+                <!-- Finanzas -->
+                <div class="md:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                    <div class="bg-red-50 p-5 rounded-xl border border-red-200 border-l-4 border-l-red-500">
+                        <h3 class="text-red-800 font-bold mb-3 flex items-center gap-2 text-sm uppercase">
+                            <i class="fa-solid fa-file-invoice-dollar"></i> Estructura de Costes
+                        </h3>
+                        <ul class="text-sm text-red-900 space-y-1 list-disc list-inside">
+                            <li>Pago a especialistas</li>
+                            <li>Mantenimiento de plataforma</li>
+                            <li>Pago mediante servicio social para estudiantes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-5 rounded-xl border border-green-200 border-l-4 border-l-green-500">
+                        <h3 class="text-green-800 font-bold mb-3 flex items-center gap-2 text-sm uppercase">
+                            <i class="fa-solid fa-hand-holding-dollar"></i> Fuentes de Ingreso
+                        </h3>
+                        <ul class="text-sm text-green-900 space-y-1 list-disc list-inside">
+                            <li>Aportaciones voluntarias</li>
+                            <li>Donaciones</li>
+                            <li>Apoyo estatal y gubernamental</li>
+                            <li>Apoyo de organizaciones civiles</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="equipo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-brand-100 text-brand-700 font-bold text-sm mb-4">
+                    Equipo 3
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Desarrolladores del Proyecto</h2>
+                <div class="h-1 w-20 bg-brand-500 mx-auto rounded mb-6"></div>
+                <p class="text-lg text-gray-600">
+                    Un grupo interdisciplinario comprometido con mejorar la calidad educativa y el bienestar integral infantil.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-10">
+                <!-- Miembros extraidos del boceto -->
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-brand-300 transition-all duration-300 mb-4">
+                        <i class="fa-solid fa-user text-3xl text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg">Diana</h3>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-brand-300 transition-all duration-300 mb-4">
+                        <i class="fa-solid fa-user text-3xl text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg">Ángel</h3>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-brand-300 transition-all duration-300 mb-4">
+                        <i class="fa-solid fa-user text-3xl text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg">Carlos</h3>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-brand-300 transition-all duration-300 mb-4">
+                        <i class="fa-solid fa-user text-3xl text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg">Ernesto</h3>
+                </div>
+                <div class="text-center group">
+                    <div class="w-24 h-24 mx-auto bg-gray-50 rounded-full flex items-center justify-center shadow-lg border-4 border-white group-hover:border-brand-300 transition-all duration-300 mb-4">
+                        <i class="fa-solid fa-user text-3xl text-gray-400 group-hover:text-brand-500 transition-colors"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 text-lg">Alejandra</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-brand-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0,100 L0,0 L100,100 Z" fill="white"></path>
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Quieres ser parte del cambio?</h2>
+            <p class="text-brand-100 text-lg mb-10">Ya sea como escuela, especialista o padre de familia, únete a NeuroCrea para fortalecer el desarrollo de la niñez.</p>
+            
+            <form class="max-w-md mx-auto bg-white p-6 rounded-2xl shadow-2xl" onsubmit="event.preventDefault(); document.getElementById('success-msg').classList.remove('hidden');">
+                <div class="mb-4">
+                    <input type="text" placeholder="Nombre completo o Institución" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Correo electrónico" required class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+                </div>
+                <button type="submit" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl hover:bg-brand-700 transition-colors shadow-md">
+                    Enviar solicitud de contacto
+                </button>
+                <p id="success-msg" class="hidden mt-4 text-green-600 font-bold text-sm">¡Mensaje enviado! Nos pondremos en contacto pronto.</p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-brain text-brand-500 text-2xl"></i>
+                <span class="font-bold text-xl text-white">NeuroCrea</span>
+            </div>
+            <div class="text-sm">
+                &copy; 2024 Proyecto Universitario NeuroCrea - Equipo 3. Todos los derechos reservados.
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand-500 hover:text-white transition-colors">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                
+                <!-- Botón Interactivo Tung Tung Sahur adaptado a mensaje positivo -->
+                <button id="sahur-btn" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-accent-500 hover:text-white transition-colors cursor-pointer relative group">
+                    <i class="fa-solid fa-drum"></i>
+                    <span class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                        Sorpresa musical
+                    </span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notificación interactiva amigable -->
+    <div id="sahur-notification" class="fixed bottom-4 right-4 bg-white rounded-xl shadow-2xl p-4 border-l-4 border-accent-500 transform translate-y-24 opacity-0 transition-all duration-500 z-50 flex items-center gap-4 pointer-events-none">
+        <div class="w-12 h-12 bg-accent-100 text-accent-600 rounded-full flex items-center justify-center text-2xl animate-bounce">
+            <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <div>
+            <h4 class="font-bold text-gray-800 text-lg">¡Tung Tung Sahur!</h4>
+            <p class="text-sm text-gray-600">Es hora de despertar las ideas creativas.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sahurBtn = document.getElementById('sahur-btn');
+            const sahurNotification = document.getElementById('sahur-notification');
+            let isAnimating = false;
+
+            sahurBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Mostrar notificación
+                sahurNotification.classList.remove('translate-y-24', 'opacity-0');
+                
+                // Efecto visual en el botón
+                sahurBtn.classList.add('animate-ping');
+                setTimeout(() => {
+                    sahurBtn.classList.remove('animate-ping');
+                }, 1000);
+
+                // Ocultar notificación después de unos segundos
+                setTimeout(() => {
+                    sahurNotification.classList.add('translate-y-24', 'opacity-0');
+                    isAnimating = false;
+                }, 4000);
+            });
+        });
+    </script>
+</body>
+</html>
